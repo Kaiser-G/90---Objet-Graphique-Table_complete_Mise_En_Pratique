@@ -18,12 +18,55 @@
 <body>
     <h1>Exercice 1 (90 test_table_complete_Mise_Pratique.html)</h1>
 
+
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Ajout stagiaire
+    </button>
+
+    <!--Pour les fenetres modal-->
+    <!--Pour ajouter un stagiaire-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ajout d'un nouveau stagiaire</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="form-floating mb-3 mt-3">
+                    <input type="number" class="form-control" id="txtCodeAjout" placeholder="Enter code" name="code">
+                    <label for="code">Code :</label>
+                </div>
+
+                <div class="form-floating mt-3 mb-3">
+                    <input type="text" class="form-control" id="txtNomAjout" placeholder="Enter nom" name="nom">
+                    <label for="nom">Nom :</label>
+                </div>
+                <div class="form-floating mb-3 mt-3">
+                    <input type="text" class="form-control" id="txtPrenomAjout" placeholder="Enter prenom" name="nom">
+                    <label for="nom">Prénom :</label>
+                </div>
+
+                <div class="form-floating mb-3 mt-3">
+                    <input type="text" class="form-control" id="txtMailAjout" placeholder="Enter email" name="email">
+                    <label for="email">Mail :</label>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-success">Enregistrer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="zone"></div>
 
 
 
 
-    <!--Pour la fenetre modal-->
+
 
     <!--Fenetre modal VUE-->
     <div class="modal fade" id="frmVue" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -33,10 +76,24 @@
                     <h5 class="modal-title" id="exampleModalLabel">Consultation</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    Code : <input type="text" id="txtCodeVue" name="txtCodeVue" readonly />
-                    <br>
-                    Libellé : <input type="text" id="txtLibelleVue" name="txtLibelleVue" readonly />
+                <div class="form-floating mb-3 mt-3">
+                    <input type="text" class="form-control" id="txtCodeVue" placeholder="Enter code" name="code"
+                        readonly>
+                    <label for="code">Code</label>
+                </div>
+                <div class="form-floating mt-3 mb-3">
+                    <input type="text" class="form-control" id="txtNomVue" placeholder="Enter nom" name="nom" readonly>
+                    <label for="nom">Nom</label>
+                </div>
+                <div class="form-floating mt-3 mb-3">
+                    <input type="text" class="form-control" id="txtPrenomVue" placeholder="Enter prenom" name="prenom"
+                        readonly>
+                    <label for="prenom">Prenom</label>
+                </div>
+                <div class="form-floating mb-3 mt-3">
+                    <input type="text" class="form-control" id="txtMailVue" placeholder="Enter email" name="email"
+                        readonly>
+                    <label for="email">Mail</label>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
@@ -46,27 +103,7 @@
     </div>
 
 
-    <!--Fenetre modal MODIF-->
-    <!-- <div class="modal fade" id="frmModif" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modification</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    Code : <input type="text" id="txtCodeModif" name="txtCodeVue" readonly />
-                    <br>
-                    Libellé : <input type="text" id="txtLibelleModif" name="txtLibelleVue" />
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                    <button type="button" class="btn btn-primary">Enregistrer</button>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!--MODIF V2 TEST-->
+    <!--Fenetre modif-->
 
     <div class="modal fade" id="frmModif" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -75,18 +112,27 @@
                     <h5 class="modal-title" id="exampleModalLabel">Modification</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+
                 <div class="form-floating mb-3 mt-3">
-                    <input type="text" class="form-control" id="txtCodeModif" placeholder="Enter email" name="email">
-                    <label for="email">Code</label>
+                    <input type="text" class="form-control" id="txtCodeModif" placeholder="Enter code" name="code">
+                    <label for="code">Code</label>
+                </div>
+                <div class="form-floating mt-3 mb-3">
+                    <input type="text" class="form-control" id="txtNomModif" placeholder="Enter password" name="pswd">
+                    <label for="pwd">Nom</label>
+                </div>
+                <div class="form-floating mt-3 mb-3">
+                    <input type="text" class="form-control" id="txtPrenomModif" placeholder="Enter password"
+                        name="pswd">
+                    <label for="pwd">Prenom</label>
+                </div>
+                <div class="form-floating mb-3 mt-3">
+                    <input type="text" class="form-control" id="txtMailModif" placeholder="Enter email" name="email">
+                    <label for="email">Mail</label>
                 </div>
 
-                <div class="form-floating mt-3 mb-3">
-                    <input type="text" class="form-control" id="txtLibelleModif" placeholder="Enter password"
-                        name="pswd">
-                    <label for="pwd">Libellé</label>
-                </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
                     <button type="button" class="btn btn-primary">Enregistrer</button>
                 </div>
             </div>
@@ -102,7 +148,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    SUPPRIMER LA LIGNE ? <input type="text" id="txtCodeSuppr" />
+                    SUPPRIMER LA LIGNE ? <input type="text" id="txtCodeSuppr" readonly />
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Oui</button>
@@ -133,40 +179,27 @@
     <script>
         //function_modif
         function modifRegion(e) {
-            // alert("Click sur modif region");
             let valeurs = e.target.value.split(",");
             document.getElementById("txtCodeModif").value = valeurs[0];
-            document.getElementById("txtLibelleModif").value = valeurs[1];
-            // for (let i = 0; i < valeurs.length; i++) {
-            //     alert("Modif " + valeurs[i]);
-            // }
-
+            document.getElementById("txtNomModif").value = valeurs[1];
+            document.getElementById("txtPrenomModif").value = valeurs[2];
+            document.getElementById("txtMailModif").value = valeurs[3];
         }
 
         //function_vue
         function vueRegion(e) {
-            // alert("Click sur vue region");
             let valeurs = e.target.value.split(",");
-            // for (let i = 0; i < valeurs.length; i++) {
-            //     alert("Vue " + valeurs[i]);
-            // }
-            //a tester
-            // valeurs.forEach((value) => {
-            //     alert("Vue " + value);
-            // });
-            let txt = document.getElementById("txtCodeVue").value = valeurs[0];
-            document.getElementById("txtLibelleVue").value = valeurs[1];
+            document.getElementById("txtCodeVue").value = valeurs[0];
+            document.getElementById("txtNomVue").value = valeurs[1];
+            document.getElementById("txtPrenomVue").value = valeurs[2];
+            document.getElementById("txtMailVue").value = valeurs[3];
         }
 
         //fonction_suppr
         function supprRegion(e) {
-            // alert("Click sur supp region");
             let valeurs = e.target.value.split(",");
             document.getElementById("txtCodeSuppr").value = valeurs[0];
             document.getElementById("txtLibelleSuppr").value = valeurs[1];
-            // for (let i = 0; i < valeurs.length; i++) {
-            //     alert("Supp " + valeurs[i]);
-            // }
         }
 
         window.addEventListener("load", (event) => {
@@ -196,10 +229,12 @@
 
 
             //data = les données
-            tab.data = [[1, "Centre Val de Loire"],
-            [2, "Bretagne"], [3, "Languedoc"], [4, "Corse"], [5, "Alsace"], [6, "Auvergne"], [8, "Rhone Alpes"], [9, "Normandie"], [11, "POLOGNE"]];
+            tab.data = [[100, "Nom1", "Prenom1", "Mail1"],
+            [200, "Nom2", "Prenom2", "Mail2"],
+            [300, "Nom3", "Prenom3", "Mail3"],
+            [400, "Nom4", "Prenom4", "Mail4"]];
 
-            tab.header = ["Code", "Nom"];
+            tab.header = ["Code", "Nom", "Prénom", "Mail"];
             tab.class_modif = "";//class sans Bootstrap
             tab.class_suppr = "";
             tab.class_vue = "";

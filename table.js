@@ -118,7 +118,7 @@ class Table {
           if (typeof this.fonction_modif == "function") {
             let btn2 = document.createElement("button");
             btn2.className =
-              this.class_modif + " " + this.icone_modif + this.BS_class_modif;
+              this.class_modif + this.icone_modif + this.BS_class_modif;
             // btn2.className = "btn btn-success btn-sm fas fa-pencil fa-sm";
             btn2.value = values;
 

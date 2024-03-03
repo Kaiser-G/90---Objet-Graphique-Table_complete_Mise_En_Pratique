@@ -130,7 +130,7 @@
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                    <button type="button" class="btn btn-primary">Enregistrer</button>
+                    <button id="btnModif_enreg" type="button" class="btn btn-primary">Enregistrer</button>
                 </div>
             </div>
         </div>
@@ -175,7 +175,7 @@
     <script src="table.js"></script>
     <script>
         //function_modif
-        function modifRegion(e) {
+        function modifStagiaire(e) {
             let valeurs = e.target.value.split(",");
             document.getElementById("txtCodeModif").value = valeurs[0];
             document.getElementById("txtNomModif").value = valeurs[1];
@@ -184,7 +184,7 @@
         }
 
         //function_vue
-        function vueRegion(e) {
+        function vueStagiaire(e) {
             let valeurs = e.target.value.split(",");
             document.getElementById("txtCodeVue").value = valeurs[0];
             document.getElementById("txtNomVue").value = valeurs[1];
@@ -193,11 +193,36 @@
         }
 
         //fonction_suppr
-        function supprRegion(e) {
+        function supprStagiaire(e) {
             let valeurs = e.target.value.split(",");
             document.getElementById("txtCodeSuppr").value = valeurs[0];
             document.getElementById("txtLibelleSuppr").value = valeurs[1];
         }
+
+        //gestion des click sur les boutons VUE MODIF et SUPPR
+        function enregModifStagiaire(e) {
+            let modifLigne = [parseInt
+                (document.getElementById("txtCodeModif").value),
+            document.getElementById("txtNomModif").value,
+            document.getElementById("txtPrenomModif").value,
+            document.getElementById("txtMailModif").value];
+
+            for (let i = 0; i < stagiaires.length; i++) {
+                if (stagiaires[i][0] == modifLigne[0]) {
+                    stagiaires[i][1] = modifLigne[1];
+                    stagiaires[i][2] = modifLigne[2];
+                    stagiaires[i][3] = modifLigne[3];
+                    break; //permet de terminer la boucle
+
+                }
+            }
+            generer();
+        }
+
+
+
+
+
         //fonction_ajout
         let btnAjout = document.getElementById("btn-ajout")
         btnAjout.addEventListener("click", () => {
@@ -232,11 +257,12 @@
 
 
             //data = les données
-            tab.data = [[100, "Nom1", "Prenom1", "Mail1"],
+            let stagiaires = [[100, "Nom1", "Prenom1", "Mail1"],
             [200, "Nom2", "Prenom2", "Mail2"],
             [300, "Nom3", "Prenom3", "Mail3"],
             [400, "Nom4", "Prenom4", "Mail4"]];
 
+            tab.data = stagiaires;
             tab.header = ["Code", "Nom", "Prénom", "Mail"];
             tab.class_modif = "";//class sans Bootstrap
             tab.class_suppr = "";
@@ -248,9 +274,9 @@
             tab.icone_suppr = "btn-sm fas fa-trash fa-sm";
 
             //Les méthodes
-            tab.fonction_modif = modifRegion;
-            tab.fonction_suppr = supprRegion;
-            tab.fonction_vue = vueRegion;
+            tab.fonction_modif = modifStagiaire;
+            tab.fonction_suppr = supprStagiaire;
+            tab.fonction_vue = vueStagiaire;
 
             //exo 2
             tab.BS_class_vue = "btn btn-danger";//Class Bootstrap
@@ -266,6 +292,11 @@
 
             tab.separateur = ",";
             tab.generer();
+
+            // Interception des click sur ENREGISTRER dans les MODAL
+            document.getElementById("btnModif_enreg").addEventListener("click",
+                enregModifStagiaire,
+                false);
         }, false);
 
     </script>
